@@ -1,70 +1,57 @@
-'use client'
+import Notes from "@/components/Notes";
 
-import { useState } from "react";
-
-const Hello = () => {  //props is an object type.
-  return(
+const Hello = (props) => {
+  console.log(props);
+  const { name, age } = props;
+  return (
     <>
-    <p> Hello World </p>
+      <p>
+        Hello {name}, are you {age}?
+      </p>
     </>
-
-  )
-}
-
-// const Hello = (props) => {
-//   console.log(props);
-//   // const {name, age} = props;
-//   return (
-//     <>
-//       <p>Hello {props.name}, you're {props.age} years old </p>
-//     </>
-//     )
-// }
+  );
+};
 
 export default function Home() {
-  const now = new Date();
-  const friends = [
-    {name: 'Jessie', age : 25},
-    {name: 'Gustavo', age : 52},
-    {name: 'Hank', age : 49}
+  // const now = new Date();
+  // const friends = [
+  //   { name: "karma", age: "20" },
+  //   { name: "sumedha", age: "19" },
+  //   { name: "abhinav", age: "18" },
+  // ];
+  // return (
+  //   <div>
+  //     <h1>Welcome to react</h1>
+  //     <p>It is {now.toString()}</p>
+  //     {/* <Hello friends = {friends.name} age = {20} /> */}
+  //     {friends.map((friends) => (
+  //       <Hello name={friends.name} age={friends.age} />
+  //     ))}
+  //     <Counter></Counter>
+  //     <Feedback />
+  //   </div>
+  // );
+
+  const notes = [
+    {
+      id : 1,
+      desc : 'today is chilli',
+      important : true
+    },
+    {
+      id: 2 ,
+      desc : "css is required for web application",
+      important :false
+    },
+    {
+      id: 3 ,
+      desc : "JS with react is a must",
+      important : true
+    }
   ]
-  // const name = 'Walter White';
-
-  const [count, setCount] = useState(0)
-  const handleClick = () => setCount(count + 1)
-
-  return (
-    // <>
-
-    // <h1>Welcome to React</h1>
-    // <p>It is {now.toString()}.</p>
-    // {/* <Hello name={name} age={47}/> */}
-    // {friends.map((friend, index) => (
-    //           <Hello key={index} name={friend.name} age={friend.age} />
-    // ))}
-    
-    // <Counter count={count} handleClick={handleClick}/>
-    // <Counter count={count} handleClick={handleClick}/> 
-
-    // <p> . </p>
-    // <p> . </p>
-    
-    // {/* <h1> Hello World, React! </h1> */}
-    // {/* <p> Current time is {now.toString()}. </p> */}
-
-
-    // {/* <Task1/> */}
-
-
-    // {/* <Task2/> */}
-
-
-    // <Feedback/>
-
-
-    // </>
+  return(
+    <div>
+      <Notes notes = {notes}/>
+    </div>
   )
 }
-
-
-  
